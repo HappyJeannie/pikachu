@@ -1,0 +1,137 @@
+.fun(@fontsize){
+  font-size:@fontsize * 0.76rem;
+}
+.mr(@mr){
+  margin-right: @mr * 0.76rem;
+}
+.ml(@ml){
+  margin-left: @ml * 0.76rem;
+}
+.mt(@mt){
+  margin-top: @mt * 0.76rem;
+}
+.mb(@mb){
+  margin-bottom: @mb * 0.76rem;
+}
+.height(@ht){
+  height:@ht * 0.76rem;
+}
+.width(@wd){
+  width: @wd * 0.76rem;
+}
+.tp(@tp){
+  top:@tp * 0.76rem;
+}
+.btm(@btm){
+  bottom: @btm * 0.76rem;
+}
+.lf(@lf){
+  left: @lf * 0.76rem;
+}
+.rt(@rt){
+  right: @rt * 0.76rem;
+}
+.borderWidth(@tp,@rt,@bt,@lf){
+  border-width: @tp*0.76rem @rt*0.76rem @bt*0.76rem @lf*0.76rem;
+}
+
+*{
+  padding:0px;
+  margin:0px;
+  box-sizing:border-box;
+}
+body{
+  border:1px solid #f00;
+  height:100vh;
+  width:100%;
+  background:#FFE600;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  div.wrapper{
+    position:relative;
+    border:1px solid red;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    .height(2.35);
+  }
+  .nose{
+    width:0px;
+    height:0px;
+    background:none;
+    border-radius:50%;
+    border:10px solid #000;
+    .borderWidth(0.1,0.1,0.1,0.1);
+    border-color:#000 transparent transparent;
+    border-width: 10px 12px;
+    .borderWidth(0.1,0.12,0.1,0.12);
+    position: absolute;
+    .tp(0.38);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .eye{
+    .width(0.63);
+    .height(0.63);
+    position:absolute;
+    background:rgb(46,46,46);
+    border-radius:50%;
+    top: 0%;
+    border:3px solid #000;
+    .borderWidth(0.03,0.03,0.03,0.03);
+    &.left{
+      right:50%;
+      .mr(0.8);
+    }
+    &.right{
+      left:50%;
+      .ml(0.8);
+    }
+    &:before{
+      content:'';
+      .width(0.25);
+      .height(0.25);
+      background: #fff;
+      border:3px solid #000;
+      .borderWidth(0.03,0.03,0.03,0.03);
+      position: absolute;
+      top: 0px;
+      .lf(0.06);
+      border-radius:50%;
+    }
+  }
+  .face{
+    position: absolute;
+    .width(0.88);
+    .height(0.88);
+    background: #f00;
+    border:3px solid #000;
+    .borderWidth(0.03,0.03,0.03,0.03);
+    border-radius: 50%;
+    .tp(1.1);
+    &.left{
+      right:50%;
+      .mr(1.14);
+    }
+    &.right{
+      left:50%;
+      .ml(1.14);
+    }
+  }
+  .upperLip{
+    position: absolute;
+    border:2px solid #000;
+    .width(0.8);
+    .height(0.20);
+    border-radius: 20px 12px;
+    border-top-color:#ffe600;
+    border-right-color:#ffe600;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0px;
+    transform: rotate(-20deg);
+    background: #ffe600;
+  }
+}

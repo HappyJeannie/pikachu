@@ -4,6 +4,9 @@
   margin:0px;
   box-sizing:border-box;
 }
+#preCode {
+  font-size: 0.16rem;
+}
 body{
   height:100vh;
   width:100%;

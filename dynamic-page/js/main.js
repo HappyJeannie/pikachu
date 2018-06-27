@@ -1,7 +1,13 @@
 !(function(){
   let style = `
-  #preCode {
-    font-size: 0.16rem;
+  /*
+  * 这次绘制一个皮卡丘
+  * 加点背景色吧
+  */
+  #pre{
+    padding: 20px 10px;
+    background: #343436;
+    color:#fff;
   }
   /*
   * 接下来做一些代码高亮的部分
@@ -18,11 +24,14 @@
   .token.function{
     color: #e6db74;
   }
+  /*
+  * 处理一下简单的布局
+  */
   #code {
-    background: #FFE600;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #FFE600;
   }
   #code div.wrapper {
     position: relative;
@@ -33,6 +42,9 @@
     flex-direction: column;
     height: 1.786rem;
   }
+  /*
+  * 开始画可爱的鼻子
+  */
   #code .nose {
     width: 0px;
     height: 0px;
@@ -48,6 +60,9 @@
     left: 50%;
     transform: translateX(-50%);
   }
+  /*
+  * 皮卡丘的大眼睛
+  */
   #code .eye {
     width: 0.4788rem;
     height: 0.4788rem;
@@ -66,6 +81,9 @@
     left: 50%;
     margin-left: 0.608rem;
   }
+  /*
+  * 加个亮晶晶的眼球
+  */
   #code .eye:before {
     content: '';
     width: 0.19rem;
@@ -78,6 +96,9 @@
     left: 0.0456rem;
     border-radius: 50%;
   }
+  /*
+  * 皮卡丘的红脸颊
+  */
   #code .face {
     position: absolute;
     width: 0.6688rem;
@@ -95,6 +116,17 @@
   #code .face.right {
     left: 50%;
     margin-left: 0.8664rem;
+  }
+  /*
+  * 上嘴唇出现啦
+  */
+  #code .lip-wrapper {
+    width: 100%;
+    height: 63.5%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
   }
   #code .upperLip {
     position: absolute;
@@ -117,6 +149,9 @@
     border-left: none;
     transform: rotate(25deg);
   }
+  /*
+  * 画下嘴唇
+  */
   #code .lowerLip {
     position: absolute;
     background: #9B000A;
@@ -143,14 +178,10 @@
     left: 50%;
     transform: translateX(-50%);
   }
-  #code .lip-wrapper {
-    width: 100%;
-    height: 63%;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
+  /*
+  * 好了，差不多了，喜欢的话可以去我的 github 去之间看源码噻 https://github.com/HappyJeannie/pikachu
+  * 欢迎点赞比小心心
+  */
   `;
   
   function writeCode(preData,newData,fn){
@@ -164,7 +195,7 @@
       if(n > style.length){
         clearInterval(t);
       }
-    },0)
+    },50)
   }
   writeCode('',style);
 }).call()

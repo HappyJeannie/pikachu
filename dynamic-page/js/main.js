@@ -179,23 +179,43 @@
     transform: translateX(-50%);
   }
   /*
-  * 好了，差不多了，喜欢的话可以去我的 github 去之间看源码噻 https://github.com/HappyJeannie/pikachu
+  * 好了，差不多了，喜欢的话可以去我的 github 去看源码噻 
+  * https://github.com/HappyJeannie/pikachu
   * 欢迎点赞比小心心
   */
   `;
-  
+  let duration = 50;
+  $('.options').on('click','button',function(e){
+    let target = e.target;
+    $(target).addClass('active').siblings().removeClass('active');
+    return false
+    let speed = $(target).attr('data-speed');
+    switch(speed){
+      case 'slow':
+        duration = 100;
+        break;
+      case 'normal':
+        duration = 50;
+        break;
+      case 'fast':
+        duration = 10;
+        break;
+    }
+  })
   function writeCode(preData,newData,fn){
     let n = 0;
-    let t = setInterval(function(){
+    let t = setTimeout(function run(){
       n++;
       let str = style.slice(0,n);
       preCode.innerHTML = Prism.highlight(preData + str,Prism.languages.css,'css');
       preStyle.innerHTML = preData + str;
       pre.scrollTop = pre.scrollHeight;
-      if(n > style.length){
-        clearInterval(t);
+      if(n >= style.length){
+        fn.call();
+      }else{
+        t = setTimeout(run,duration)
       }
-    },50)
+    },duration)
   }
   writeCode('',style);
 }).call()
